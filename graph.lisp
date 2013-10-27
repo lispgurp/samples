@@ -1,6 +1,3 @@
- ;;; graph data structure primitives, operation ;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
 (defclass node ()
   ((name :accessor name :initarg :name)
    (val :accessor val :initarg :val)
@@ -95,9 +92,6 @@
 
 ;;; sdot representation ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-; sdot representation will live with each node and a "master list", that is easy to compose into a single
-; sdot s-expression. The hope is that a change in the edge/node decl, will be the same for both lists
-; since they are sharing the same structure!
 
 (defclass sdot-node ()
   ((sdot-visited? :accessor sdot-visited? :initarg :sdot-visited?)
@@ -178,3 +172,7 @@
                      :if-does-not-exist :create
                      :if-exists :supersede)
     (s-dot->dot s sdg)))
+
+(defun consume-sdot-strings (afile)
+  (with-open-file (s afile)
+    ('look-for-consumer)))

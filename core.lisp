@@ -1,3 +1,5 @@
+; cl-rewriter: A set of tools and a framework to write code in any language
+ 
 (defun get-parameters (fn)
   ())
 
